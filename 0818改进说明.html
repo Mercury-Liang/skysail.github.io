@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保险与养老规划服务用户体验测评报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        .mermaid {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        .table-container table {
+            min-width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .progress-bar {
+            transition: width 1s ease-out;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8 px-4 shadow-lg">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2 fade-in">Skysail用户测试预热：保险与养老规划服务</h1>
+                    <p class="text-xl opacity-90 fade-in">用户体验测评报告</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm opacity-75">生成日期</p>
+                    <p class="text-lg font-medium">2025.08.18</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 报告结论速览 -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                    <i class="fas fa-chart-line text-purple-600 mr-3"></i>报告结论速览
+                </h2>
+                
+                <!-- 核心需求 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">核心需求</h3>
+                    <p class="text-gray-600 mb-4">用户对AI辅助规划的核心需求聚焦于：</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="metric-card p-6 rounded-lg hover-scale">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-shield-alt text-3xl text-red-500 mr-3"></i>
+                                <span class="text-4xl font-bold text-gray-800">71%</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">大额医疗支出兜底</h4>
+                            <p class="text-sm text-gray-600">需覆盖医保外自费部分（如癌症靶向药30-80万）</p>
+                        </div>
+                        <div class="metric-card p-6 rounded-lg hover-scale">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-piggy-bank text-3xl text-blue-500 mr-3"></i>
+                                <span class="text-4xl font-bold text-gray-800">43%</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">退休资金储备</h4>
+                            <p class="text-sm text-gray-600">解决长寿风险（如活到90岁，30年养老周期缺口）</p>
+                        </div>
+                        <div class="metric-card p-6 rounded-lg hover-scale">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-shopping-cart text-3xl text-green-500 mr-3"></i>
+                                <span class="text-4xl font-bold text-gray-800">80%</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">具体产品执行方案</h4>
+                            <p class="text-sm text-gray-600">拒绝笼统建议，需"直接推荐具体产品及购买量"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品表现 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">产品表现</h3>
+                    <div class="table-container">
+                        <table class="w-full bg-white border-collapse">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">维度</th>
+                                    <th class="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">优势</th>
+                                    <th class="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">短板</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="border border-gray-300 px-4 py-3 font-medium">需求识别</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-green-700">精准量化风险（如"重大疾病自费30-80万"），显著提升用户对保险的需求。</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-red-700">问卷设计有点问题，不知道是解决了用户需求导致需求变弱，还是潜在的深层意图捕捉不足。</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="border border-gray-300 px-4 py-3 font-medium">方案设计</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-green-700">职业定制方案（如电工专属意外险）、结构化规划（教育金三步法）减少信息过载</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-red-700">产品库覆盖不足：重疾险需求未匹配（如49岁保至70岁产品缺失）、特定职业背景的需求实际无法匹配。</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="border border-gray-300 px-4 py-3 font-medium">信任建立</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-green-700">真实理赔案例有效说服（如电工高空坠落赔付5.8万）</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-red-700">绝大部分用户初始不信任保险推荐，冷启动问题</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="border border-gray-300 px-4 py-3 font-medium">交互体验</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-green-700">分步引导降低决策压力</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-red-700">思考过程暴露（如"（先快速安抚情绪）"）、Markdown渲染问题</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 优化方向 -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">优化方向</h3>
+                    <div class="space-y-6">
+                        <!-- 市场调研与用户实验 -->
+                        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-semibold text-lg mb-3 text-blue-800">
+                                <i class="fas fa-flask mr-2"></i>市场调研与用户实验
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="font-medium text-gray-700 mb-2">目标</p>
+                                    <p class="text-gray-600">验证AI工具对留存率、转化率的影响</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-700 mb-2">设计</p>
+                                    <ul class="text-gray-600 space-y-1 text-sm">
+                                        <li>• 测试人群：覆盖7+类职业（公务员/教师/电工等）、3个年龄层（23-35岁/35-50岁/50+）</li>
+                                        <li>• 问卷维度：焦虑值（医疗/养老/资产）、需求程度、方案采纳率</li>
+                                        <li>• 数据分析：对比实验组（优化版AI）vs对照组的决策效率、购买转化率</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="font-medium text-gray-700 mb-2">时间线</p>
+                                <div class="flex items-center space-x-4 text-sm">
+                                    <span class="bg-blue-200 px-3 py-1 rounded">1个月实验设计</span>
+                                    <i class="fas fa-arrow-right text-blue-500"></i>
+                                    <span class="bg-blue-300 px-3 py-1 rounded">2个月执行</span>
+                                    <i class="fas fa-arrow-right text-blue-500"></i>
+                                    <span class="bg-blue-400 px-3 py-1 rounded text-white">1个月分析</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 提示词与交互优化 -->
+                        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                            <h4 class="font-semibold text-lg mb-3 text-green-800">
+                                <i class="fas fa-code mr-2"></i>提示词与交互优化
+                            </h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span><strong>禁止思考过程输出</strong>：删除类似"（先快速安抚情绪）"的内部逻辑（用户反馈"不专业"）</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span><strong>修复渲染问题</strong>：解决Markdown表格加粗错误（案例7用户投诉）</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 智能体架构重构 -->
+                        <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                            <h4 class="font-semibold text-lg mb-3 text-purple-800">
+                                <i class="fas fa-robot mr-2"></i>智能体架构重构
+                            </h4>
+                            <div class="mb-4">
+                                <p class="font-medium text-gray-700 mb-2">保险模块</p>
+                                <p class="text-gray-600">解决保险模块跳转错误（如案例8）。未来需要补全产品库（重疾险/惠民保/少儿险）、接入智能核保API（支持高血压实时预判）</p>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700 mb-2">用户分层</p>
+                                <div class="table-container">
+                                    <table class="w-full bg-white border-collapse text-sm">
+                                        <thead>
+                                            <tr class="bg-purple-100">
+                                                <th class="border border-gray-300 px-3 py-2 text-left">用户类型</th>
+                                                <th class="border border-gray-300 px-3 py-2 text-left">偏好</th>
+                                                <th class="border border-gray-300 px-3 py-2 text-left">适配方案</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="border border-gray-300 px-3 py-2">高学历（高校教师）</td>
+                                                <td class="border border-gray-300 px-3 py-2">专业数据支持（IRR计算）</td>
+                                                <td class="border border-gray-300 px-3 py-2">提供动态收益测算工具</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-gray-300 px-3 py-2">情感需求高（微商）</td>
+                                                <td class="border border-gray-300 px-3 py-2">闲聊陪伴+快速执行</td>
+                                                <td class="border border-gray-300 px-3 py-2">增加"一键购买"入口</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-gray-300 px-3 py-2">蓝领（电工）</td>
+                                                <td class="border border-gray-300 px-3 py-2">直观案例+实际保障</td>
+                                                <td class="border border-gray-300 px-3 py-2">前置职业专属理赔案例</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 系统设计升级 -->
+                        <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
+                            <h4 class="font-semibold text-lg mb-3 text-orange-800">
+                                <i class="fas fa-cogs mr-2"></i>系统设计升级
+                            </h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-orange-500 mt-1 mr-2"></i>
+                                    <span><strong>LM的测试反馈</strong>：梳理测试内容，对应日志排查报错错误</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-orange-500 mt-1 mr-2"></i>
+                                    <span><strong>参数调整</strong>：按会议沟通修改报错参数，解决报错问题</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-orange-500 mt-1 mr-2"></i>
+                                    <span><strong>规划页面优化</strong>：参考TODO list项目UIUX，增加"最终清单"功能（如案例17用户需求）</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据驱动的详细分析 -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                    <i class="fas fa-chart-bar text-blue-600 mr-3"></i>数据驱动的详细分析
+                </h2>
+                
+                <!-- 用户画像与需求洞察 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">1. 用户画像与需求洞察</h3>
+                    
+                    <!-- 焦虑来源饼图 -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg mb-3 text-gray-700">焦虑来源（问卷数据，5分制）</h4>
+                        <div class="mermaid">
+                            pie
+                                title "用户焦虑值分布"
+                                "家庭养老" : 4.2
+                                "大病医疗" : 3.9
+                                "资产增值" : 3.6
+                                "子女支出" : 2.8
+                                "宠物支出" : 1.6
+                        </div>
+                        <p class="text-gray-600 mt-4 italic">结论：医疗与养老焦虑显著高于其他领域，与对话记录中"最担心大额医疗支出+退休资金储备"吻合。</p>
+                    </div>
+
+                    <!-- 需求程度 -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg mb-3 text-gray-700">需求程度（问卷数据，5分制）</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">AI辅助养老规划</span>
+                                    <div class="flex items-center">
+                                        <div class="w-32 bg-gray-200 rounded-full h-4 mr-3">
+                                            <div class="bg-blue-500 h-4 rounded-full progress-bar" style="width: 90%"></div>
+                                        </div>
+                                        <span class="font-semibold text-blue-600">4.5</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">AI辅助投资理财</span>
+                                    <div class="flex items-center">
+                                        <div class="w-32 bg-gray-200 rounded-full h-4 mr-3">
+                                            <div class="bg-green-500 h-4 rounded-full progress-bar" style="width: 96%"></div>
+                                        </div>
+                                        <span class="font-semibold text-green-600">4.8</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">AI辅助保险选择</span>
+                                    <div class="flex items-center">
+                                        <div class="w-32 bg-gray-200 rounded-full h-4 mr-3">
+                                            <div class="bg-purple-500 h-4 rounded-full progress-bar" style="width: 92%"></div>
+                                        </div>
+                                        <span class="font-semibold text-purple-600">4.6</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">AI辅助子女规划</span>
+                                    <div class="flex items-center">
+                                        <div class="w-32 bg-gray-200 rounded-full h-4 mr-3">
+                                            <div class="bg-yellow-500 h-4 rounded-full progress-bar" style="width: 64%"></div>
+                                        </div>
+                                        <span class="font-semibold text-yellow-600">3.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mt-4 italic">洞察：金融类规划需求显著高于生活类，用户对"具体化"要求强烈（4/5用户要求产品推荐）。</p>
+                    </div>
+
+                    <!-- 用户自信度对比 -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-lg mb-3 text-gray-700">测前：用户自信度（问卷数据，100分制）</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="text-gray-700">一个AI助手在几轮对话后都没帮你解决问题，你会放弃？</span>
+                                    <span class="font-semibold">4</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="text-gray-700">我清楚自己在保险/养老方面的主要问题或痛点</span>
+                                    <span class="font-semibold">54.86</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="text-gray-700">我认为我目前掌握的信息能够帮助我独立做出决策</span>
+                                    <span class="font-semibold">56.00</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="text-gray-700">我对保险产品的基本知识了解程度较高</span>
+                                    <span class="font-semibold">37.86</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="text-gray-700">我对养老知识有基本了解</span>
+                                    <span class="font-semibold">49.43</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="text-gray-700">我具备为自己或家庭做出保险/养老规划的能力</span>
+                                    <span class="font-semibold">49.43</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                    <span class="text-gray-700">我有清晰的个人财务目标和行动计划</span>
+                                    <span class="font-semibold">49.14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-3 text-gray-700">测后：用户自信度（问卷数据，100分制）</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                                    <span class="text-gray-700">使用该平台后，我更清楚自己的需求与痛点</span>
+                                    <span class="font-semibold text-green-600">75.57</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                                    <span class="text-gray-700">平台提供的信息/工具帮助我解决了原有的一些困惑</span>
+                                    <span class="font-semibold text-green-600">77.71</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                                    <span class="text-gray-700">我在平台的帮助下，对选择保险/养老产品更有信心了</span>
+                                    <span class="font-semibold text-green-600">73.57</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                                    <span class="text-gray-700">我愿意继续使用这个平台辅助我进行保险/养老规划</span>
+                                    <span class="font-semibold text-green-600">79.00</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                                    <span class="text-gray-700">使用该平台后，我对保险知识的认知有显著提升</span>
+                                    <span class="font-semibold text-green-600">70.29</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                                    <span class="text-gray-700">使用该平台后，我对养老知识的理解更加深入</span>
+                                    <span class="font-semibold text-green-600">73.29</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-green-50 rounded">
+                                    <span class="text-gray-700">我对未来的财务目标和路径更清晰了</span>
+                                    <span class="font-semibold text-green-600">79.57</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4 italic">结论：用户在专业领域普遍缺乏自信，验证AI辅助必要性。提升是显著的，尤其在需求识别和方案设计上。</p>
+                </div>
+
+                <!-- 用户行为与反馈分析 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">2. 用户行为与反馈分析</h3>
+                    
+                    <!-- 决策路径 -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg mb-3 text-gray-700">决策路径（基于对话记录）</h4>
+                        <div class="mermaid">
+                            graph LR
+                                A[疑虑期] --> B[质疑必要性]
+                                B --> C[要求数据证明]
+                                C --> D[验证期]
+                                D --> E[查看理赔案例]
+                                E --> F[对比产品细节]
+                                F --> G[行动期]
+                                G --> H[要求投保指引]
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg mt-4">
+                            <p class="font-semibold text-blue-800 mb-2">关键发现：</p>
+                            <ul class="space-y-1 text-gray-700">
+                                <li>• 场景化是核心驱动力（案例2的电工，需3个案例实际体会才决策）。</li>
+                                <li>• 全流程的跑通，如健康告知是保险的最大痛点（71%用户询问"高血压如何投保"）。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 职业差异 -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg mb-3 text-gray-700">职业差异（测试用户反馈）</h4>
+                        <div class="table-container">
+                            <table class="w-full bg-white border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold">用户类型</th>
+                                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold">典型反馈</th>
+                                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold">优化方向</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-3 font-medium">公务员/教师</td>
+                                        <td class="border border-gray-300 px-4 py-3">"希望方案简单、直观、易懂"（测试3、4、8）</td>
+                                        <td class="border border-gray-300 px-4 py-3">减少专业术语，突出安全属性</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-3 font-medium">微商/网约车</td>
+                                        <td class="border border-gray-300 px-4 py-3">"对情感陪伴要求高，喜欢闲聊"（测试15）</td>
+                                        <td class="border border-gray-300 px-4 py-3">增加闲聊模块，提供"一键购买"</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-3 font-medium">电工</td>
+                                        <td class="border border-gray-300 px-4 py-3">"需要直观例子证明保障有效性"（测试16）</td>
+                                        <td class="border border-gray-300 px-4 py-3">前置职业专属理赔案例</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 价格敏感阈值 -->
+                    <div>
+                        <h4 class="font-semibold text-lg mb-3 text-gray-700">价格敏感阈值（基于对话数据）</h4>
+                        <div class="table-container">
+                            <table class="w-full bg-white border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold">险种</th>
+                                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold">可接受保费范围</th>
+                                        <th class="border border-gray-300 px-4 py-3 text-left font-semibold">用户容忍度/敏感度</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-3 font-medium">百万医疗险</td>
+                                        <td class="border border-gray-300 px-4 py-3">200-500元/年</td>
+                                        <td class="border border-gray-300 px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
+                                                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 60%"></div>
+                                                </div>
+                                                <span class="text-sm">中等</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-3 font-medium">意外险</td>
+                                        <td class="border border-gray-300 px-4 py-3">150-300元/年</td>
+                                        <td class="border border-gray-300 px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
+                                                    <div class="bg-orange-500 h-2 rounded-full" style="width: 80%"></div>
+                                                </div>
+                                                <span class="text-sm">中高</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-3 font-medium">重疾险</td>
+                                        <td class="border border-gray-300 px-4 py-3">500-2000元/年</td>
+                                        <td class="border border-gray-300 px-4 py-3">
+                                            <div class="flex items-center">
+                                                <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
+                                                    <div class="bg-green-500 h-2 rounded-full" style="width: 40%"></div>
+                                                </div>
+                                                <span class="text-sm">中低</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 系统表现短板 -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">3. 系统表现短板</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3 text-red-800">
+                                <i class="fas fa-percentage mr-2"></i>产品匹配率
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">医疗险</span>
+                                    <span class="text-2xl font-bold text-green-600">86%</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">意外险</span>
+                                    <span class="text-2xl font-bold text-yellow-600">71%</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700">重疾险</span>
+                                    <span class="text-2xl font-bold text-red-600">43%</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-3">因年龄/职业限制，如未找到相关职业、相关疾病、年龄的产品。</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3 text-orange-800">
+                                <i class="fas fa-user-check mr-2"></i> 更个性化、更清晰的人机交互
+                            </h4>
+                            <p class="text-gray-700 mb-3">用户需要更个性化的服务，更清晰的takeaway，最终呈现方案的呈现是人机交互的结果。</p>
+                            <div class="bg-orange-100 p-3 rounded">
+                                <p class="text-sm text-orange-800 italic">清晰化："或许需要展示一个最终清单，一方面我们用户看起来也方便；另一方面，你们规划页面也可以用起来，提醒用户执行。" - 互联网的用户反馈</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3 text-purple-800">
+                                <i class="fas fa-handshake mr-2"></i>如何打造Skysail这个品牌？
+                            </h4>
+                            <div class="text-center mb-3">
+                                <span class="text-4xl font-bold text-purple-600">57%</span>
+                                <p class="text-gray-600">用户初始不信任保险中介，对平台可能在初步认知的情况下，信任建立不足</p>
+                            </div>
+                            <p class="text-sm text-gray-600">需3+理赔案例说服</p>
+                            <div class="bg-purple-100 p-3 rounded mt-3">
+                                <p class="text-sm text-purple-800 italic">"需要看实际赔付记录" - 电工用户原话</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 优化建议与工作安排 -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white rounded-lg card-shadow p-8">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                    <i class="fas fa-tasks text-green-600 mr-3"></i>优化建议与工作安排
+                </h2>
+                
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">中长期规划（3-6个月）</h3>
+                <div class="table-container">
+                    <table class="w-full bg-white border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">方向</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">具体措施</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">预期效果</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">负责人</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">时间线</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-3 font-medium">开发计算器</td>
+                                <td class="border border-gray-300 px-4 py-3">构建"保险计算器"：输入年龄/保费，自动生成IRR曲线、现金价值表</td>
+                                <td class="border border-gray-300 px-4 py-3 text-green-700">减少交互轮次70%</td>
+                                <td class="border border-gray-300 px-4 py-3">技术团队</td>
+                                <td class="border border-gray-300 px-4 py-3">第3-4个月</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-3 font-medium">深化养老场景</td>
+                                <td class="border border-gray-300 px-4 py-3">整合政策数据（如学区房、企业年金），提供"买房vs租房"模拟器</td>
+                                <td class="border border-gray-300 px-4 py-3 text-green-700">养老规划转化率提升40%</td>
+                                <td class="border border-gray-300 px-4 py-3">产品团队</td>
+                                <td class="border border-gray-300 px-4 py-3">第4-5个月</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-3 font-medium">用户分层运营</td>
+                                <td class="border border-gray-300 px-4 py-3">按职业/预算推送定制方案（如教师群体侧重"寒暑假增收+教育金"）</td>
+                                <td class="border border-gray-300 px-4 py-3 text-green-700">用户满意度提升至90%+</td>
+                                <td class="border border-gray-300 px-4 py-3">运营团队</td>
+                                <td class="border border-gray-300 px-4 py-3">第5-6个月</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-3 font-medium">一键购买功能</td>
+                                <td class="border border-gray-300 px-4 py-3">对接保险平台API，实现"推荐-购买"闭环</td>
+                                <td class="border border-gray-300 px-4 py-3 text-green-700">购买转化率提升30%</td>
+                                <td class="border border-gray-300 px-4 py-3">技术团队</td>
+                                <td class="border border-gray-300 px-4 py-3">第6个月</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 结论 -->
+        <section class="fade-in">
+            <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg card-shadow p-8">
+                <h2 class="text-3xl font-bold mb-6">
+                    <i class="fas fa-lightbulb mr-3"></i>结论
+                </h2>
+                <div class="space-y-4">
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">1. 核心需求确认</h3>
+                        <p>用户最需解决 <span class="font-bold text-yellow-300">"大额医疗支出"</span> 和 <span class="font-bold text-yellow-300">"退休资金储备"</span> ，并强烈要求 <span class="font-bold text-yellow-300">具体产品推荐</span>（80%用户）。</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">2. 系统价值定位</h3>
+                        <p>在 <span class="font-bold text-green-300">风险量化</span> 和 <span class="font-bold text-green-300">职业定制方案</span> 上具备优势，但需补齐 <span class="font-bold text-red-300">产品覆盖</span> 和 <span class="font-bold text-red-300">核保效率</span> 短板。</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">3. 关键行动点</h3>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div class="bg-green-500 bg-opacity-30 p-3 rounded">
+                                <p class="font-semibold mb-1">立即行动</p>
+                                <p>补全产品库，接入智能核保，建立理赔案例库</p>
+                            </div>
+                            <div class="bg-yellow-500 bg-opacity-30 p-3 rounded">
+                                <p class="font-semibold mb-1">重点突破</p>
+                                <p>用真实案例建立信任，提供"一键购买"功能</p>
+                            </div>
+                            <div class="bg-blue-500 bg-opacity-30 p-3 rounded">
+                                <p class="font-semibold mb-1">长期壁垒</p>
+                                <p>开发动态计算器，深化养老场景服务，实现用户分层运营</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg text-sm">
+                        <p class="italic"><i class="fas fa-info-circle mr-2"></i>数据支撑：本报告基于典型的7个对话案例、27份问卷反馈及30个测试用户反馈，覆盖年龄23-70岁、7类职业，所有结论均有数据或用户原话佐证。下一步将通过用户实验验证优化效果。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 px-4 mt-12">
+        <div class="container mx-auto text-center">
+            <p class="text-sm opacity-75">© 2025 保险与养老规划服务用户体验测评报告</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#667eea',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#5a67d8',
+                lineColor: '#e2e8f0',
+                secondaryColor: '#764ba2',
+                tertiaryColor: '#f7fafc'
+            }
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animate progress bars
+        setTimeout(() => {
+            document.querySelectorAll('.progress-bar').forEach(bar => {
+                bar.style.width = bar.style.width;
+            });
+        }, 500);
+    </script>
+</body>
+</html>
