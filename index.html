@@ -269,27 +269,7 @@
             </div>
         </section>
 
-        <!-- Section 4: Trust & Credibility -->
-        <section>
-            <h2 class="text-3xl font-bold text-center mb-10">信赖，源自<span class="text-blue-600">专业与客观</span></h2>
-            <div class="kpi-card max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="text-center md:text-left">
-                        <h3 class="text-2xl font-bold text-blue-800 mb-4">用户高度认可</h3>
-                        <p class="text-slate-600 mb-4">在最近的用户测试中，我们收到了非常积极的反馈。我们坚信，专业的金融知识与AI技术的结合，能够为普罗大众带来普惠的金融服务。</p>
-                        <div class="text-5xl font-bold text-blue-600">87.5%</div>
-                        <div class="text-lg font-medium text-slate-700">的受访用户对我们的服务表示满意</div>
-                    </div>
-                    <div class="chart-container mx-auto">
-                        <canvas id="satisfactionChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </div>
-
-               
+                
         <!-- CTA Section -->
         <section class="text-center py-20 bg-indigo-700 text-white rounded-2xl shadow-lg animate-on-scroll" id="cta-section">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">期待与您携手，共建普惠金融的未来</h2>
@@ -304,5 +284,128 @@
     <footer class="text-center py-8 text-gray-500">
         <p>&copy; 2025 水木云帆 | 清华大学经济管理学院</p>
     </footer>
+
+    <script>
+        // JavaScript for section animations on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Chart.js for data visualization
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartFontColor = '#374151';
+
+            // User Anxiety Chart
+            const anxietyCtx = document.getElementById('anxietyChart').getContext('2d');
+            new Chart(anxietyCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['大病医疗', '家庭养老', '资产增值', '子女支出'],
+                    datasets: [{
+                        label: '用户焦虑值 (5分制)',
+                        data: [4.2, 3.9, 3.6, 2.8],
+                        backgroundColor: ['#f472b6', '#a78bfa', '#60a5fa', '#34d399'],
+                        borderRadius: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, max: 5, ticks: { color: chartFontColor } },
+                        x: { ticks: { color: chartFontColor } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: '用户核心焦虑来源', color: chartFontColor, font: { size: 14 } }
+                    }
+                }
+            });
+
+            // User Confidence Chart
+            const confidenceCtx = document.getElementById('confidenceChart').getContext('2d');
+            new Chart(confidenceCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['清楚需求', '独立决策', '保险知识', '养老知识'],
+                    datasets: [
+                        {
+                            label: '测前评分',
+                            data: [54.86, 56.00, 37.86, 49.43],
+                            backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                            borderColor: 'rgba(239, 68, 68, 1)',
+                            pointBackgroundColor: 'rgba(239, 68, 68, 1)',
+                        },
+                        {
+                            label: '测后评分',
+                            data: [75.57, 73.57, 70.29, 73.29],
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e5e7eb' },
+                            grid: { color: '#e5e7eb' },
+                            pointLabels: { color: chartFontColor, font: { size: 12 } },
+                            ticks: { display: false, beginAtZero: true, max: 100 }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: chartFontColor } },
+                        title: { display: true, text: 'AI辅助后用户自信度提升', color: chartFontColor, font: { size: 14 } }
+                    }
+                }
+            });
+
+            // Product Match Rate Chart
+            const matchRateCtx = document.getElementById('matchRateChart').getContext('2d');
+            new Chart(matchRateCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['医疗险', '意外险', '重疾险'],
+                    datasets: [{
+                        label: '产品匹配率 (%)',
+                        data: [86, 71, 43],
+                        backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
+                        borderRadius: 5,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { beginAtZero: true, max: 100, ticks: { color: chartFontColor } },
+                        y: { ticks: { color: chartFontColor } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: '不同险种产品匹配率', color: chartFontColor, font: { size: 14 } }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
